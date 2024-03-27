@@ -1,0 +1,522 @@
+:root{
+    --dark-text: #373F41;
+    --blue-text: #3C64B1;
+    --lighdark-text: #0f1516;
+}
+body{
+    margin: 0;
+    font-family: 'Space Grotesk' , Arial, sans-serif;
+    font-size: 1.25rem;
+}
+
+.hoheader,
+.footer,
+.header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 40px 0 40px;
+    z-index: 2;
+}
+
+.maincontact ul,
+.hoheader ul,
+.footer ul,
+.header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+.footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 0 20px 0 20px;
+    gap: 1rem;
+}
+
+.maincontact a,
+.hoheader a,
+.footer a,
+.header a{
+    text-decoration: none;
+}
+.homenu,
+.menu{
+    position: absolute;
+    z-index: 2;
+
+}
+
+.maincontact a,
+.footer a{
+  color: #fff;
+}
+.homenu a,
+.menu a{
+    color: var(--dark-text);
+}
+
+.maincontact a:hover,
+.footer a:hover,
+.homenu a:hover,
+.menu a:hover{
+    color: var(--blue-text);
+}
+
+.login-nav{
+    justify-content: flex-end;
+}
+
+.account {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    background: url(images/img.jpg) left / contain no-repeat;
+    background-size: 65% 100%;
+    z-index: 1;
+}
+
+.account_content {
+    font-family: "Manrope";
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    gap: 1.31rem;
+    flex: 0 0 49.444444%; /* 712/1440 */
+    
+}
+
+.account_loginform,
+.account_content{
+    padding: 4.75rem 4.166667%; /* 60/1440 */
+}
+.about_title,
+.about_title1,
+.product_title,
+.about_text,
+.product_text,
+.account_title,
+.account_text {
+    position: relative;
+}
+
+.about_title1{
+    position: relative;
+    margin: 0;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.product_title{
+    margin: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+.about_title{
+    margin: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+.contact_title{
+    font-size: 32px;
+    font-weight: 500;
+}
+.contact_title1{
+    font-size: 28px;
+    font-weight: 400;
+    margin: 80px 0 0 0;
+}
+.account_title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    max-width: 309px;
+}
+.about_text{
+    margin: 100px 0 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+.product_text{
+    margin: 80px 0 0 0;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.15;
+}
+.contact_text p{
+    margin: 40px 0 ;
+  
+}
+
+.account_text{
+    margin: 0;
+    line-height: 1.35;
+}
+.concontainer{
+    color: #fff;
+}
+
+.loginform {
+    flex: 1 1 auto;
+    padding: 30px;
+}
+
+.account_inset {
+    max-width: 59.065934%; /* 430/728 */
+    margin: 0 auto;
+    display: flex;
+    gap: 3.125rem;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 26.875rem;
+}
+
+.account_inset a{
+    text-decoration: none;
+}
+.account_logo {
+    font-family: 'Manrope';
+    font-weight: 600;
+    font-size: 1.25rem;
+    line-height: 1.35; /* 27/20 */
+    color: #1d1d1b;
+    padding: 2rem 0 0 2rem;
+}
+
+.form_title {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 2.25rem;
+    line-height: 1.36;
+}
+
+.form_title::not(:last-child){
+    margin-bottom: 0.3125rem;
+}
+
+.form_text {
+    line-height: 1.30;
+}
+
+.form_items input[type="text"],
+.form_items input[type="email"],
+.form_items input[type="password"]{
+    width: 95%;
+    padding: 8px;
+    border-style: hidden;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-bottom 0.8s ease 0s, padding-left 0.3s ease 0s;
+}
+
+.form_items input[type="text"]:hover,
+.form_items input[type="email"]:hover,
+.form_items input[type="password"]:hover{
+    border-bottom: 1px solid #000;
+}
+
+.form_items input[type="text"]:focus,
+.form_items input[type="email"]:focus,
+.form_items input[type="password"]:focus{
+    padding-left: 0.3975rem;
+}
+
+.form_items input[type="text"]::placeholder,
+.form_items input[type="email"]::placeholder,
+.form_items input[type="password"]::placeholder{
+    color: #000;
+    transition: opacity 0.3s ease 0s;
+}
+
+.form_items input[type="text"]:focus::placeholder
+.form_items input[type="email"]:focus::placeholder
+.form_items input[type="password"]:focus::placeholder{
+    opacity: 0;
+}
+
+.form_actioins {
+    display: grid;
+    gap: 1.625rem;
+}
+
+.form_button {
+    line-height: 40px;
+    background-color: #060606;
+    border-radius: 0.375rem;
+    padding: 0 0.9375rem;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease 0s;
+}
+
+.form_button:hover{
+    background-color: #333;
+}
+
+.form_or {
+    color: #7a7a7a;
+    line-height: 1.3;
+    position: relative;
+    text-align: center;
+}
+
+.form_or::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.0625rem;
+    top: 50%;
+    left: 0;
+    background-color: #e0e0e0;
+}
+
+.form_or span{
+    background-color: #fff;
+    position: relative;
+    padding: 0 0.5rem;
+}
+
+.form_google {
+    color: #060606;
+    border:  0.0625rem solid #d9d9d9;
+    border-radius: 0.375rem;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    transition: border 0.3s ease 0s ;
+}
+
+.form_google:hover{
+    border: 0.0625rem solid #000;
+}
+
+.form_google span{
+    background: url(images/Googlebutton.png) left / 1rem no-repeat;
+    padding-left: 2.5rem;
+    line-height: 1.3;
+}
+
+.account_login {
+    margin-top: 30px;
+    text-align: center;
+    font-size:  1rem;
+}
+
+.btn-in{
+    color: #060606;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.btn-in:hover{
+    color: var(--blue-text);
+    text-decoration: none;
+ }
+
+.btn-up{
+    color: #060606;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.btn-up:hover{
+    color: var(--blue-text);
+    text-decoration: none;
+ }
+
+
+/* STRONA HOME */
+.home{
+    height: 100vh;
+    background-image: url(Images/img.jpg);
+    background-size: cover;
+    background-position: center
+}
+
+.container {
+    color: #fff;
+    font-family: "Manrope";
+    display: flex;
+    justify-content: space-between;
+}
+
+.container p{
+    margin: 15px 0 20px 0;
+}
+
+.left-section{
+    margin: 200px 0 0 50px ;
+    max-width: 60%;
+}
+
+.about_title,
+.about_title1,
+.product_title,
+.contact_title{
+    animation: fadeIn 1s ease-in-out forwards;
+}
+.about_text,
+.product_text,
+.contact_title1{
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+    animation-delay: 0.8s;
+}
+.animated_text,
+.maincontact li,
+.maincontact li::marker,
+.social1{
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 1.8s;
+}
+
+.button {
+    font-family: 'Space Grotesk' , Arial, sans-serif;
+    font-size: 1rem;
+    color: #060606;
+    font-weight: 500;
+    margin: 35px 25px 0 0px;
+    border: none;
+    border-radius: 5px;
+    background-color:transparent;
+    cursor: pointer;
+}
+
+
+/* ANIMACJE */
+.account_content::before{
+    transform: translate(-100%, 0px);
+}
+
+.loaded,
+.account_content::before{
+    transform: translate(0px, 0px);
+    transition: all 0.3s ease 0s;
+}
+
+.form > *,
+.account_logo,
+.account_login{
+    transform: translate(0px, 1.875rem);
+    opacity: 0;
+}
+
+.loaded .form > *,
+.loaded .account_logo,
+.loaded .account_login{
+    transform: translate(0, 0);
+    opacity: 1;
+    transition: transform 1.5s ease ,opacity 0s ease;
+}
+
+.instacont span{
+    background: url(images/instagram_social.png)left / 1rem no-repeat;
+    padding-left: 1.2rem;
+    line-height: 1.3;
+}
+
+.facecont span{
+    background: url(images/facebook_social.png)left / 1rem no-repeat;
+    padding-left: 1.2rem;
+    line-height: 1.3;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+@media(max-width: 450px) {
+    .hoheader{
+        gap: 5rem;
+    }
+    .footer{
+        opacity: 0;
+        gap: 3.5rem;
+    }
+    .homenu,
+    .login-nav,
+    .contact,
+    .social {
+        display: flex;
+        flex-direction: column;
+    }
+    .left-section{
+        max-width: 80%;
+        margin: 80px 0 0 50px;
+    }
+    .account{
+        display: block;
+        background-size: 180% 100%;
+    }
+    .account_content{
+        padding: 50px 25px 0 25px;
+        transform: translate(0px, 0px);
+    }
+    .loginform{
+        padding: 0 30px 0 30px;
+    }
+    .loginform,
+    .loginform a{
+        color: #fff;
+    }
+    .account_title{
+        margin: 0;
+        align-self: center;
+    }
+    .about_title{
+        margin: 70px 0 0 0;
+    }
+    .about_text{
+        margin: 50px 0 15px 0;
+    }
+    .product_text{
+        font-weight: 400;
+        margin: 10px 0 0 0;
+    }
+    .contact_title{
+        font-size: 26px;
+        font-weight:  400;
+        margin: 150px 0 0 0;
+    }
+    .contact_title1{
+        font-size: 22px;
+    }
+    .contact_text1 p{
+        margin: 50px 0 30px 0;
+    }
+
+    .animated_text,
+    .about_title,
+    .about_title1,
+    .about_text,
+    .product_title,
+    .product_text{
+        font-size: 90%;
+    }
+
+    .account_title,
+    .account_text,
+    .form_title,
+    .loginform label,
+    .loginform a,
+    .loginform p{
+        font-size: 75%;
+    }
+}
+
