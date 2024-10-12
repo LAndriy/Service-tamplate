@@ -1,279 +1,285 @@
-:root{
-    --dark-text: #373F41;
-    --blue-text: #3C64B1;
-    --lighdark-text: #0f1516;
+/* Globalne ustawienia */
+html{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
 }
-body{
-    margin: 0;
-    font-family: 'Space Grotesk' , Arial, sans-serif;
-    font-size: 1.25rem;
-}
-
-.hoheader,
-.footer,
-.header{
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 10px 40px 0 40px;
-    z-index: 2;
+    grid-template-columns: auto 1fr;
+}
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.maincontact ul,
-.hoheader ul,
-.footer ul,
-.header ul{
+/*Sidebar */
+#sidebar{
+    box-sizing: border-box;
+    height: 100vh;
+    width: 250px;
+    padding: 5px 1em;
+    color: #fff;
+    background-color: #333;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    transition: 300ms ease-in-out;
+    overflow: hidden;
+    text-wrap: nowrap;
+  }
+  #sidebar.close{
     padding: 0;
-    margin: 0;
+    width: 0px;
+  }
+  #sidebar ul{
+    list-style: none;
+  }
+  #sidebar > ul > li:first-child{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 10px 10px 0;
+    .log{
+      font-weight: 600;
+      font-size: 20px;
+    }
+  }
+  #sidebar a{
+    border-radius: .5em;
+    padding: .5em;
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+  #sidebar a:hover{
+    background-color: #777;
+  }
+  #toggle-btn{
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding:  10px 0 10px 10px;
+    svg{
+      transition: rotate 600ms ease;
+    }
+  }
+  #toggle-btn:hover{
+    background-color: #777;
+  }
+
+/* Navbar*/
+nav{
+    background-color: #333;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+}
+nav li{
+    height: 50px;
+}
+
+.mainnavbar{
+    width: 100%;
     list-style: none;
     display: flex;
-    gap: 1rem;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #333;
 }
-.footer{
-    position: absolute;
-    bottom: 0;
+.mainnavbar li:first-child{
+    margin-right: auto;
+}
+.mainnavbar a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+.mainnavbar a:hover{
+    background-color: #777;;
+}
+.menu-button{
+    display: none;
+}
+
+.navbar{
+    position: fixed;
+    top: 0; 
     right: 0;
-    padding: 0 20px 0 20px;
-    gap: 1rem;
+    height: 100vh;
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(12px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
-
-.maincontact a,
-.hoheader a,
-.footer a,
-.header a{
+.navbar li{
+    padding-left: .85em;
+    display: flex;
+    align-items: center;
+    gap: .6em;
+}
+.navbar a,.mininavbar a{
+    color: #000;
     text-decoration: none;
 }
-.homenu,
-.menu{
-    position: absolute;
-    z-index: 2;
-
-}
-
-.maincontact a,
-.footer a{
-  color: #fff;
-}
-.homenu a,
-.menu a{
-    color: var(--dark-text);
-}
-
-.maincontact a:hover,
-.footer a:hover,
-.homenu a:hover,
-.menu a:hover{
-    color: var(--blue-text);
-}
-
-.login-nav{
-    justify-content: flex-end;
-}
-
-.account {
-    min-height: 100vh;
-    position: relative;
+.navbar button{
+    background: none;
+    border: none;
     display: flex;
-    background: url(images/img.jpg) left / contain no-repeat;
-    background-size: 65% 100%;
-    z-index: 1;
+    font: inherit;
+    align-items: center;
+    gap: .6em;
+    border-radius: .5em;
 }
 
-.account_content {
-    font-family: "Manrope";
-    color: #fff;
+#mininavbar li{
+    display:block
+}
+#mininavbar li:first-child{
+    padding-top: 15px;
+}
+#mininavbar svg, .navbar svg{
+    flex-shrink: 0;
+    fill: var(--text-clr);
+}
+.rotate svg:last-child{
+    rotate: 180deg;
+  }
+.dropdown-btn svg{
+    transition: 200ms ease;
+}
+#mininavbar a {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    position: relative;
-    gap: 1.31rem;
-    flex: 0 0 49.444444%; /* 712/1440 */
-    
+    padding: 0 .85em 1em 0;
 }
-
-.account_loginform,
-.account_content{
-    padding: 4.75rem 4.166667%; /* 60/1440 */
-}
-.about_title,
-.about_title1,
-.product_title,
-.about_text,
-.product_text,
-.account_title,
-.account_text {
-    position: relative;
-}
-
-.about_title1{
-    position: relative;
-    margin: 0;
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.15;
-}
-
-.product_title{
-    margin: 0;
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.15;
-}
-
-.about_title{
-    margin: 0;
-    color: #fff;
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.15;
-}
-.contact_title{
-    font-size: 32px;
-    font-weight: 500;
-}
-.contact_title1{
-    font-size: 28px;
-    font-weight: 400;
-    margin: 80px 0 0 0;
-}
-.account_title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.15;
-    max-width: 309px;
-}
-.about_text{
-    margin: 100px 0 0 0;
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.15;
-}
-.product_text{
-    margin: 80px 0 0 0;
-    font-size: 2rem;
-    font-weight: 800;
-    line-height: 1.15;
-}
-.contact_text p{
-    margin: 40px 0 ;
+#mininavbar .sub-menu{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: 300ms ease-in-out;
   
+    > div{
+      overflow: hidden;
+    }
+}
+#mininavbar .sub-menu.show{
+    grid-template-rows: 1fr;
 }
 
-.account_text{
-    margin: 0;
-    line-height: 1.35;
-}
-.concontainer{
-    color: #fff;
-}
-
-.loginform {
-    flex: 1 1 auto;
-    padding: 30px;
-}
-
-.account_inset {
-    max-width: 59.065934%; /* 430/728 */
-    margin: 0 auto;
+.auth-buttons {
     display: flex;
-    gap: 3.125rem;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 26.875rem;
+    gap: 15px;
+    margin-right: 20px;
+}
+.auth-buttons button {
+    width: 124px;
+    padding: 10px 8px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.auth-buttons button:hover {
+    background-color: #777;
 }
 
-.account_inset a{
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+.modal-content h2{
+    text-align: center;
+    margin-top: 0;
+}
+.closebtn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.closebtn:hover,
+.closebtn:focus {
+    color: black;
     text-decoration: none;
+    cursor: pointer;
 }
-.account_logo {
-    font-family: 'Manrope';
-    font-weight: 600;
-    font-size: 1.25rem;
-    line-height: 1.35; /* 27/20 */
-    color: #1d1d1b;
-    padding: 2rem 0 0 2rem;
-}
-
-.form_title {
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 2.25rem;
-    line-height: 1.36;
-}
-
-.form_title::not(:last-child){
-    margin-bottom: 0.3125rem;
-}
-
-.form_text {
-    line-height: 1.30;
-}
-
-.form_items input[type="text"],
-.form_items input[type="email"],
-.form_items input[type="password"]{
+.modal-content input{
     width: 95%;
-    padding: 8px;
+    display: block;
+    padding: 10px;
+    margin: 10px 0;
     border-style: hidden;
     border-bottom: 1px solid #ccc;
     border-radius: 4px;
     transition: border-bottom 0.8s ease 0s, padding-left 0.3s ease 0s;
 }
-
-.form_items input[type="text"]:hover,
-.form_items input[type="email"]:hover,
-.form_items input[type="password"]:hover{
+.modal-content input:hover{
     border-bottom: 1px solid #000;
 }
-
-.form_items input[type="text"]:focus,
-.form_items input[type="email"]:focus,
-.form_items input[type="password"]:focus{
+.modal-content input:focus{
     padding-left: 0.3975rem;
 }
-
-.form_items input[type="text"]::placeholder,
-.form_items input[type="email"]::placeholder,
-.form_items input[type="password"]::placeholder{
-    color: #000;
+.modal-content input::placeholder{
     transition: opacity 0.3s ease 0s;
 }
-
-.form_items input[type="text"]:focus::placeholder
-.form_items input[type="email"]:focus::placeholder
-.form_items input[type="password"]:focus::placeholder{
+.modal-content input:focus::placeholder{
     opacity: 0;
 }
-
-.form_actioins {
-    display: grid;
-    gap: 1.625rem;
-}
-
-.form_button {
-    line-height: 40px;
-    background-color: #060606;
-    border-radius: 0.375rem;
-    padding: 0 0.9375rem;
-    font-size: 1rem;
-    color: #fff;
+.modal-content button {
+    padding: 8px 12px 8px 12px;
+    margin: 10px 0;
+    background-color: #61535a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
     cursor: pointer;
-    transition: background-color 0.3s ease 0s;
+    transition: background-color 0.3s ease;
 }
-
-.form_button:hover{
-    background-color: #333;
+.modal form,
+.logwith{    
+    text-align: center;
 }
-
+#login-form button:hover, #register-form button:hover  {
+    background-color: #3f353b;
+}
 .form_or {
     color: #7a7a7a;
     line-height: 1.3;
     position: relative;
     text-align: center;
 }
-
 .form_or::before{
     content: "";
     position: absolute;
@@ -283,240 +289,522 @@ body{
     left: 0;
     background-color: #e0e0e0;
 }
-
 .form_or span{
     background-color: #fff;
     position: relative;
     padding: 0 0.5rem;
 }
-
+.logwith{
+    margin-top: 15px;
+}
+.logwith a{
+    text-decoration: none;
+}
+.logwith ul{
+    padding: 0;
+    list-style: none;
+}
+.logwith li{
+    margin-top: 10px;
+}
+.form_facebook,
 .form_google {
     color: #060606;
     border:  0.0625rem solid #d9d9d9;
     border-radius: 0.375rem;
-    padding: 0.8rem 0.5rem;
-    text-align: center;
+    padding: 0.6rem 0 0.6rem 0;
     transition: border 0.3s ease 0s ;
 }
-
+.form_facebook{
+    padding-left: 0.6rem;
+    padding-right: 0.3rem;
+}
+.form_google{
+    padding-right: 1.4rem;
+}
+.form_facebook:hover,
 .form_google:hover{
     border: 0.0625rem solid #000;
 }
-
+.form_facebook span{
+    background: url(images/facebook-icon.png) left / 1.3rem no-repeat;
+    padding-left: 1.9rem;
+    line-height: 1.3;
+}
 .form_google span{
-    background: url(images/Googlebutton.png) left / 1rem no-repeat;
+    background: url(images/google-icon.jpg) left / 2.5rem no-repeat;
     padding-left: 2.5rem;
     line-height: 1.3;
 }
 
-.account_login {
-    margin-top: 30px;
-    text-align: center;
-    font-size:  1rem;
-}
-
-.btn-in{
-    color: #060606;
-    font-weight: 500;
-    text-decoration: underline;
-}
-
-.btn-in:hover{
-    color: var(--blue-text);
-    text-decoration: none;
- }
-
-.btn-up{
-    color: #060606;
-    font-weight: 500;
-    text-decoration: underline;
-}
-
-.btn-up:hover{
-    color: var(--blue-text);
-    text-decoration: none;
- }
-
-
-/* STRONA HOME */
-.home{
-    height: 100vh;
-    background-image: url(Images/img.jpg);
-    background-size: cover;
-    background-position: center
-}
-
-.container {
-    color: #fff;
-    font-family: "Manrope";
-    display: flex;
-    justify-content: space-between;
-}
-
-.container p{
-    margin: 15px 0 20px 0;
-}
-
-.left-section{
-    margin: 200px 0 0 50px ;
-    max-width: 60%;
-}
-
-.about_title,
-.about_title1,
-.product_title,
-.contact_title{
-    animation: fadeIn 1s ease-in-out forwards;
-}
-.about_text,
-.product_text,
-.contact_title1{
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-    animation-delay: 0.8s;
-}
-.animated_text,
-.maincontact li,
-.maincontact li::marker,
-.social1{
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in-out forwards;
-    animation-delay: 1.8s;
-}
-
-.button {
-    font-family: 'Space Grotesk' , Arial, sans-serif;
-    font-size: 1rem;
-    color: #060606;
-    font-weight: 500;
-    margin: 35px 25px 0 0px;
+/* Ukryte sekcje z informacjami */
+#logout-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #f44336;
+    color: white;
     border: none;
     border-radius: 5px;
-    background-color:transparent;
+    font-size: 1em;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+.logout-btn:hover {
+    background-color: #d32f2f;
+}
+#user-visits button{
+    margin-left: 20px;
+    background-color: indianred;
+}
+#user-visits {
+    padding: 0;
+}
+#user-visits li{
+    list-style:none;
+}
+
+/* Sekcje */
+.about-section, .services-section, .gallery-section, .reservation-section {
+    padding: 60px 0;
+}
+.about-section {
+    background-color: #f5f5f5;
+}
+.services-section, .gallery-section {
+    background-color: #f0f0f0;
+}
+.content-container,.services-container {
+    width: 80%;
+    margin: 0 auto;
+}
+.about-section h2, .services-section h2, .gallery-section h2, .reservation-section h2 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+}
+.services-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    gap: 20px;
+    width: 60%;
+    margin: 0 auto;
+}
+.service-box{
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+.service-box h3 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+}
+.service-box p, .about-section p, .contact-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #555;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+}
+.gallery-grid img {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+.grid-item{
+    display: flex;
+    justify-content: space-around;
 }
 
 
-/* ANIMACJE */
-.account_content::before{
-    transform: translate(-100%, 0px);
+/* Kalendarz Rezerwacji */
+.reservation-container {
+    max-width: 690px;
+    margin: 0 auto;
+    text-align: center;
+}
+.calendar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.month-year-header {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    grid-column: span 6;
+}
+.day-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.day-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.time-slot {
+    background-color: #e0e7ff;
+    color: #000;
+    border: none;
+    padding: 10px 0;
+    margin-bottom: 8px;
+    width: 80px;
+    min-height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.time-slot:hover {
+    background-color: #b2bffb;
+}
+.time-slot.selected {
+    background-color: #7a95ef;
+    color: #fff;
+}
+.time-slot.reserved {
+    cursor: not-allowed;
+    background-color: #ffcccc;
+    color: #000;
+}
+.nav-button {
+    background-color: #f8f7f7;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+.nav-button:hover {
+    background-color: #e0e0e0;
 }
 
-.loaded,
-.account_content::before{
-    transform: translate(0px, 0px);
-    transition: all 0.3s ease 0s;
+/* Forma Rezerwacji */
+.form-container input {
+    padding: 10px;
+    margin: 10px 0;
+    border-style: hidden;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-bottom 0.8s ease 0s;
 }
-
-.form > *,
-.account_logo,
-.account_login{
-    transform: translate(0px, 1.875rem);
+.form-container input:hover{
+    border-bottom: 1px solid #000;
+}
+.form-container input::placeholder{
+    transition: opacity 0.3s ease 0s;
+}
+.form-container input:focus::placeholder{
     opacity: 0;
 }
-
-.loaded .form > *,
-.loaded .account_logo,
-.loaded .account_login{
-    transform: translate(0, 0);
-    opacity: 1;
-    transition: transform 1.5s ease ,opacity 0s ease;
+#reservation-form{
+    text-align: center;
+}
+#reservation-form button {
+    padding: 8px;
+    margin: 10px 0;
+    background-color: #61535a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#reservation-form button:hover {
+    background-color: #3f353b;
 }
 
-.instacont span{
-    background: url(images/instagram_social.png)left / 1rem no-repeat;
-    padding-left: 1.2rem;
-    line-height: 1.3;
+/* Podgląd rezerwacji */
+.reservation-container{
+    text-align: left;
+}
+.reservation-container button {
+    margin-top: 5px;
+    padding: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.reservation-container li {
+    list-style: none;
+}
+.reservation-container button:hover {
+    background-color: #d6362b;
+}
+.reservation-details {
+    margin-top: 8px;
 }
 
-.facecont span{
-    background: url(images/facebook_social.png)left / 1rem no-repeat;
-    padding-left: 1.2rem;
-    line-height: 1.3;
+/* Sekcja "Kontakt" */
+#contact{
+    display: grid;
+    justify-content:end;
+    background-color: #2d2d2d;
+    padding-left: 15px;
+}
+#contact h2{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+.contact-links{
+    width: fit-content;
+    color: #fff;
+    font-size: 16px;
+}
+.contact-links a{
+    text-decoration: none;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+.contact-links a:hover {
+    transform: scale(1.1);
+}
+.contact-links img {
+    padding-top: 10px;
+    gap: 20px;
+    width: 45px;
+    height: 45px;
 }
 
+/* Footer */
+.footer {
+    font-size: 14px;
+    padding-bottom: 20px;
+    background-color: #2d2d2d;
+    color: #ffffff;
+    text-align: center;
+}
+  
+/* Media Queries - Responsywność */
+@media (max-width: 1024px) {
+    .mainnavbar a{
+        height: 100%;
+        padding: 0 7px;
+    }
+    .content-container,.services-container {
+        width: 95%;
+        margin: 0 auto;
+    }
+    .gallery-grid{
+        width: 100%;
+    }
+    /* Modal adjustments */
+    .modal-content {
+        width: 85%;
+    }
+    .form_facebook, .form_google {
+        width: 100%;
+    }
+    .auth-buttons{
+        margin-right: 10px;
+    }
+    #open-login, #open-register{
+        width: 100px;
+    }
+}
 
-@media(max-width: 450px) {
-    .hoheader{
-        gap: 5rem;
+@media(max-width: 800px){
+    body{
+        grid-template-columns: 1fr;
     }
-    .footer{
-        opacity: 0;
-        gap: 3.5rem;
+    .hideOnMobile{
+        display: none;
     }
-    .homenu,
-    .login-nav,
-    .contact,
-    .social {
-        display: flex;
-        flex-direction: column;
-    }
-    .left-section{
-        max-width: 80%;
-        margin: 80px 0 0 50px;
-    }
-    .account{
+    .menu-button{
         display: block;
-        background-size: 180% 100%;
     }
-    .account_content{
-        padding: 50px 25px 0 25px;
-        transform: translate(0px, 0px);
+    
+    .mininavbar{
+        ul{
+          padding: 0;
+          display: grid;
+          grid-auto-flow: column;
+          align-items: center;
+          overflow-x: scroll;
+        }
+        ul li{
+          height: 100%;
+        }
+        ul .dropdown-btn{
+          width: 60px;
+          height: 60px;
+          padding: 0;
+          border-radius: 0;
+          justify-content: center;
+        }
+        ul li .sub-menu.show{
+          position: fixed;
+          bottom: 60px;
+          left: 0;
+          box-sizing: border-box;
+          height: 80px;
+          width: 100%;
+          background-color: var(--hover-clr);
+          border-top: 1px solid var(--line-clr);
+          display: flex;
+          justify-content: center;
+    
+          div{
+            overflow-x: auto;
+          }
+          li{
+            display: inline-flex;
+          }
+          a{
+            box-sizing: border-box;
+            padding: 1em;
+            width: auto;
+            justify-content: center;
+          }
+        }
     }
-    .loginform{
-        padding: 0 30px 0 30px;
+
+    .about-section, .services-section, .gallery-section, .reservation-section {
+        padding: 10px 0;
     }
-    .loginform,
-    .loginform a{
-        color: #fff;
+    .about-section h2, .services-section h2, .gallery-section h2, .reservation-section h2, .contact-section h2 {
+        font-size: 2em;
+        margin: 10px 0;
     }
-    .account_title{
-        margin: 0;
-        align-self: center;
+    .services-grid{
+        width: 90%;
+        margin: 0 20px;
+        gap: 10px;
     }
-    .about_title{
-        margin: 70px 0 0 0;
-    }
-    .about_text{
-        margin: 50px 0 15px 0;
-    }
-    .product_text{
-        font-weight: 400;
-        margin: 10px 0 0 0;
-    }
-    .contact_title{
+    .service-box h3{
         font-size: 26px;
-        font-weight:  400;
-        margin: 150px 0 0 0;
-    }
-    .contact_title1{
-        font-size: 22px;
-    }
-    .contact_text1 p{
-        margin: 50px 0 30px 0;
     }
 
-    .animated_text,
-    .about_title,
-    .about_title1,
-    .about_text,
-    .product_title,
-    .product_text{
-        font-size: 90%;
+    .gallery-grid{
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery-grid img{
+        padding: 10px;
+        width: 150px;
+        height: auto;
     }
 
-    .account_title,
-    .account_text,
-    .form_title,
-    .loginform label,
-    .loginform a,
-    .loginform p{
-        font-size: 75%;
+    .modal-content {
+        width: 60%;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .time-slot {
+        width: 100%;
+        padding: 0 12px;
+    }
+    .form-container{
+        display: flex;
+        justify-content: center;
+    }
+    #reservation-form{
+        width: 60%;
+        display:grid;
     }
 }
 
+@media (max-width: 480px) {
+    .navbar{
+        width: 50%;
+    }
+
+    /* Sekcje */
+    .content-container h2{
+        margin: 0;
+    }
+    .about-section, .services-section, .gallery-section, .reservation-section {
+        padding: 20px 0;
+    }
+
+    /* Formularze */
+
+    .modal-content{
+        width: 60%;
+    }
+    .modal-content input, .auth-buttons button {
+        width: 95%;
+        padding: 12px;
+    }
+    .modal-content button {
+        font-size: 1em;
+        padding: 10px;
+    }
+    .form_facebook, .form_google {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Usługi i galeria */
+    .service-box, .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .gallery-grid{
+        width: 90%;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Kalendarz */
+    .calendar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .time-slot {
+        width: 100%;
+        padding: 7px;
+    }
+
+    /* Przycisk nawigacji w kalendarzu */
+    .nav-button {
+        margin: 0;
+        width: 45px;
+    }
+
+    /* Sekcja Kontakt */
+    .contact-section h2 {
+        font-size: 1.5em;
+    }
+    .contact-links img {
+        padding: 5px 0 5px 0;
+        width: 35px;
+        height: 35px;
+    }
+
+    /* Footer */
+    .footer {
+    padding: 10px 0;
+    }
+
+}
